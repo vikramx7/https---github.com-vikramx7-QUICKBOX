@@ -1,0 +1,100 @@
+.center-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .wave_svg {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .payment_container {
+    position: fixed;
+    z-index: 2;
+    height: 50vh;
+    width: 50%;
+    border-radius: 20px;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  
+  .main_logo_container {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    display: block;
+    text-align: -webkit-center;
+  }
+  
+  .main_logo {
+    height: 40px;
+  }
+  
+  .payment_icons {
+    height: 50px;
+  }
+  
+  .payment_icons_container {
+    width: 25%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .payment_icons_name_container {
+    width: 25%;
+    padding: 0px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .payment_icon_name {
+    color: #5953c5;
+    font-size: 16px;
+  }
+  
+  @media only screen and (max-width: 900px) {
+    .payment_icons {
+      height: 45px;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .payment_container {
+      height: 50vh;
+      width: 80%;
+    }
+    .main_logo {
+      height: 30px;
+    }
+    .payment_icons {
+      height: 35px;
+    }
+    .payment_icon_name {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+  
+  @media only screen and (max-width: 460px) {
+    .payment_icons {
+      height: 30px;
+    }
+    .payment_icon_name {
+      font-size: 10px;
+      font-weight: bold;
+    }
+  }
+  

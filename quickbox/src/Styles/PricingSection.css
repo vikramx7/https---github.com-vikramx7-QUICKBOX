@@ -1,0 +1,170 @@
+.ptbm-pricingPaid {
+  padding-top: 120px; /* Add space for the navbar */
+  padding-bottom: 80px; /* Padding at the bottom of the section */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 200px); /* Account for extra space */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center columns in the row */
+  gap: 20px; /* Add space between columns */
+}
+
+.col {
+  flex: 0 1 calc(33.333% - 40px); /* Each column will take up 1/3 of the row width minus gap */
+  max-width: 360px; /* Limit maximum width for better alignment */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 10px; /* Add some padding to the column */
+}
+
+.panel {
+  background: #fbfbfb;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center text inside the panel */
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.panel-heading {
+  padding: 30px 25px;
+  background-color: #f1f1f1;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.panel-heading h3 {
+  margin: 0;
+}
+
+.panel-body {
+  padding: 25px;
+  flex-grow: 1;
+}
+
+.panel-body p {
+  color: #6f6f6f;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.panel-body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left; /* Align list items to the left */
+}
+
+.panel-body ul li {
+  border-bottom: 1px solid #f1f1f1;
+  color: #6f6f6f;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+.panel-body ul li strong {
+  color: #2daff4;
+  font-weight: 700;
+}
+
+.panel-footer {
+  padding: 25px;
+  text-align: center;
+}
+
+.pricingRate {
+  margin-bottom: 15px;
+}
+
+.priceAnnual,
+.priceMonthly {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.price {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center; /* Center price elements */
+  font-size: 20px;
+}
+
+.price sup {
+  font-size: 14px;
+  top: 2px;
+}
+
+.price small {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.pricePlans {
+  color: #6f6f6f;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.pricingButton {
+  display: flex;
+  justify-content: center; /* Center button in the panel footer */
+  gap: 10px;
+}
+
+.btn {
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  color: #ffffff;
+}
+
+.btnPrimary {
+  background-color: #ff0000;
+}
+
+.btnOrange {
+  background-color: #ff0000;
+}
+
+.btnPurple {
+  background-color: #fb0810;
+}
+
+.pricingBasic .panel-heading {
+  background-color: #2daff4;
+}
+
+.pricingPlus .panel-heading {
+  background-color: #55a394;
+}
+
+.pricingPremium .panel-heading {
+  background-color: #7e57c2;
+}
