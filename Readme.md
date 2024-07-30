@@ -1,4 +1,4 @@
-  ![aquos]([https://i.ibb.co/xH2f3Lb/Box-Delivery-Service.png])
+(https://i.ibb.co/xH2f3Lb/Box-Delivery-Service.png)
 
 
 
