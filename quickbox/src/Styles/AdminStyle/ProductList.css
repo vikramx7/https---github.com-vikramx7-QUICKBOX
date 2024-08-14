@@ -1,0 +1,73 @@
+/* Container for the product list */
+.product-list-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end; /* Aligns the entire container to the right */
+}
+
+/* Title styling */
+.product-list-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Individual product card styling */
+.product-card {
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    height: 300px; /* Adjust the height as needed */
+}
+
+/* Product image styling */
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Product title and price styling */
+.product-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Delete button styling */
+.delete-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Pushes the button to the bottom */
+    align-self: center; /* Centers the button horizontally */
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}

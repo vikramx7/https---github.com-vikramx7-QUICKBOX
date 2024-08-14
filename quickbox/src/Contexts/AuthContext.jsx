@@ -44,7 +44,7 @@ setUserCart({...userCart,...token})
 
 const logoutUser = ()=>{
 setAuthState({isAuth:false,token:null})
-setUserCart(initialCart)
+setUserCart(initialCart)  
 }
 
 

@@ -1,0 +1,51 @@
+/* Container for the product form */
+.product-form-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Form element styling */
+.product-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input and textarea styling */
+.product-form-container input[type="text"],
+.product-form-container input[type="number"],
+.product-form-container textarea,
+.product-form-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.product-form-container textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Button styling */
+.product-form-container button {
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-form-container button:hover {
+    background-color: #45a049;
+}

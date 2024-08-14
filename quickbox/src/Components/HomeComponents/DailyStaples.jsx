@@ -1,8 +1,7 @@
 import Style from '../../Styles/HomeStyle/FruitsVegetables.module.css'
+import { Link } from 'react-router-dom'
 
-
-const DailyStaples = ()=>{
-
+const DailyStaples = () => {
     const arr = [
         'https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/79e284b5-4eb8-4e08-b32f-de87a6dcb369/a984b1c0-6135-481d-b191-dd8c278e1acb/hp_atta-flour-staplesStorefront_m_480_250922_01.jpg',
         'https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/79e284b5-4eb8-4e08-b32f-de87a6dcb369/a984b1c0-6135-481d-b191-dd8c278e1acb/hp_rice-staplesStorefront_m_480_250922_02.jpg',
@@ -12,21 +11,21 @@ const DailyStaples = ()=>{
         'https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/79e284b5-4eb8-4e08-b32f-de87a6dcb369/a984b1c0-6135-481d-b191-dd8c278e1acb/hp_salt-staplesStorefront_m_480_250922_06.jpg'
     ]
 
-    return(
+    return (
         <div className={Style.Container}>
-    <div className={Style.head} >
-    Your Daily Staples
-    </div>
-    <hr className={Style.hr}/>
-     <div className={Style.child}>
-        {arr.map((el)=>(
-
-<div key={el}><img src={el} alt={el}/></div>
-        ))}
- 
-     </div>
-    </div>
-        )
+            <div className={Style.head}>
+                Your Daily Staples
+            </div>
+            <hr className={Style.hr} />
+            <div className={Style.child}>
+                {arr.map((el, index) => (
+                    <Link to="/products/dailystaples" key={index}>
+                        <img src={el} alt={`Staple ${index}`} />
+                    </Link>
+                ))}
+            </div>
+        </div>
+    )
 }
 
 export default DailyStaples

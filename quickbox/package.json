@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@trendyol-js/react-carousel": "^3.0.0",
     "axios": "^1.2.1",
+    "firebase": "^10.12.5",
     "framer-motion": "^7.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -26,6 +27,7 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "three": "^0.167.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

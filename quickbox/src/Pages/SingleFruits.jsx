@@ -5,6 +5,7 @@ import DisplayFruits from '../Components/SingleFruitsComponents/DisplayFruits'
 import About from '../Components/SingleFruitsComponents/About'
 import Footer from '../Components/Footer'
 import Loader from './Loader'
+import Navbar from '../Components/Navbar'
 
 const SingleFruits = ()=>{
 const [data,setData] = React.useState({})
@@ -25,7 +26,7 @@ setData(res)
 
     return(
 <>
-<div style={{height:"71px",width:"100px"}} ></div>
+<div><Navbar></Navbar></div>
 
 {loading?null:<Shortnav product_name={data.product_name}/>}
 {loading?(<Loader/>):(<DisplayFruits {...data} />)}

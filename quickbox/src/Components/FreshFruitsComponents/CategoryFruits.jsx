@@ -7,8 +7,8 @@ import { Input,InputGroup,InputRightAddon } from '@chakra-ui/react'
 import {Search2Icon} from '@chakra-ui/icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faTruck,faBasketShopping} from '@fortawesome/free-solid-svg-icons'
-import Online from './Online'
 import Loader from '../../Pages/Loader'
+import Navbar from '../Navbar'
 
 const GetData = (sort,text)=>{
 return axios({
@@ -89,6 +89,8 @@ GetData(sort,text)
     }
 
     return (
+        <div>
+            
         <div className={Style.Container}>
         <div className={Style.CategorySide}>
 
@@ -409,6 +411,7 @@ Fresh Fruits (154)</div>
 </div>
         </div>
 
+     </div>
      </div>
 
    

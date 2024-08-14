@@ -1,8 +1,6 @@
-import React from 'react'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faEye,faEyeSlash} from '@fortawesome/free-solid-svg-icons'
-
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import {
     Drawer,
     DrawerBody,
@@ -18,151 +16,145 @@ import {
     InputRightElement,
     Image,
     Box,
-    Stack
- ,Alert,
- AlertTitle,
- AlertDescription,
- AlertIcon
-   
-    
-  } from '@chakra-ui/react'
-  import { AuthContext } from '../Contexts/AuthContext'
+    Stack,
+    Alert,
+    AlertIcon
+} from '@chakra-ui/react';
+import { AuthContext } from '../Contexts/AuthContext';
 
+const Login = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const btnRef = React.useRef();
+    const [show, setShow] = React.useState(false);
+    const { loginUser } = React.useContext(AuthContext);
+    const [alertShow, setAlertShow] = React.useState(null);
 
-const Login = ()=>{
+    const [formData, setFormData] = React.useState({
+        email: '',
+        password: ''
+    });
 
-        const { isOpen, onOpen, onClose } = useDisclosure()
-        const btnRef = React.useRef()
-        const [show, setShow] = React.useState(false)
-const {authState,loginUser} = React.useContext(AuthContext)
-const [alertShow,setAlertShow] = React.useState(null)
+    const handleClick = () => setShow(!show);
 
-const [formData,setFormData] = React.useState({
-email:"",password:""
-})
-        const handleClick = () => setShow(!show)
+    const HandleLogin = async (e) => {
+        e.preventDefault();
 
+        try {
+            const response = await fetch('http://localhost:8080/api/users/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
 
-      const HandleLogin = async(e)=>{
-e.preventDefault()
+            if (response.ok) {
+                const user = await response.json();
+                loginUser(user);
+                setAlertShow('True');
+            } else {
+                setAlertShow('False');
+            }
+        } catch (err) {
+            console.error('Error during login:', err);
+            setAlertShow('False');
+        }
 
-try{
-  let res = await fetch(`https://server-unwieldy-record-8334.onrender.com/user`)
-  res = await res.json()
-  let x = false
-for(let i=0; i<res.length; i++){
-  if((res[i].email===formData.email && res[i].password===formData.password)){
-   x = true
- loginUser(res[i])
-  }
-}
+        setFormData({
+            email: '',
+            password: ''
+        });
+    };
 
+    const HandleFormData = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-
-if(x===false){
-  console.log("Alert is not working")
-setAlertShow("False")
-}
-else{
-  setAlertShow("True")
-}
-
-
-}
-
-catch(err){
-console.log(err)
-}
-setFormData({
-  name:"",username:"",email:"",mobile:"",password:"",order:[]
-})
-      }
-
-
-      const HandleFormData = (e)=>{
-        setFormData({...formData,[e.target.name]:e.target.value})
-          }
-
-
-
-
-
-
-        return (
-          <>
+    return (
+        <>
             <Button ref={btnRef} onClick={onOpen}>
-              Login
+                Login
             </Button>
-            <Drawer 
-              isOpen={isOpen}
-              onClose={onClose}
-              placement='right'
-              finalFocusRef={btnRef}
-              size="sm"
+            <Drawer
+                isOpen={isOpen}
+                onClose={onClose}
+                placement="right"
+                finalFocusRef={btnRef}
+                size="sm"
             >
-              <DrawerOverlay />
-              <DrawerContent>
-{(alertShow==="False"?(<Alert status='error' style={{position:""}} variant='left-accent'>
-    <AlertIcon />
-    Error: password or email is incorrect
-  </Alert>):null) }
+                <DrawerOverlay />
+                <DrawerContent>
+                    {alertShow === 'False' && (
+                        <Alert status="error" variant="left-accent">
+                            <AlertIcon />
+                            Error: Password or email is incorrect
+                        </Alert>
+                    )}
 
-          
-  
+                    <DrawerHeader>
+                        <Box boxSize="120px">
+                            <DrawerCloseButton />
+                            <Image
+                                src="https://i.ibb.co/xH2f3Lb/Box-Delivery-Service.png"
+                                alt="Redrblack"
+                                style={{ marginTop: '-25px' }}
+                            />
+                        </Box>
+                        Welcome Back!
+                    </DrawerHeader>
 
+                    <DrawerBody>
+                        <form onSubmit={HandleLogin}>
+                            <Stack spacing={3}>
+                                <Input
+                                    type="email"
+                                    value={formData.email}
+                                    name="email"
+                                    onChange={HandleFormData}
+                                    placeholder="Enter your E-mail"
+                                />
+                                <InputGroup size="md">
+                                    <Input
+                                        pr="4.5rem"
+                                        type={show ? 'text' : 'password'}
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={HandleFormData}
+                                        placeholder="Enter your password"
+                                    />
+                                    <InputRightElement width="4.5rem">
+                                        <Button h="1.75rem" size="sm" onClick={handleClick}>
+                                            {show ? (
+                                                <FontAwesomeIcon icon={faEyeSlash} />
+                                            ) : (
+                                                <FontAwesomeIcon icon={faEye} />
+                                            )}
+                                        </Button>
+                                    </InputRightElement>
+                                </InputGroup>
+                                <Button
+                                    type="submit"
+                                    bg="red"
+                                    color="white"
+                                    style={{ marginTop: '30px', cursor: 'pointer' }}
+                                >
+                                    Login
+                                </Button>
+                            </Stack>
+                        </form>
+                    </DrawerBody>
 
-
-                <DrawerHeader>
-                    <Box boxSize="140px">
-                <DrawerCloseButton />
-
-                <Image src="https://i.ibb.co/xH2f3Lb/Box-Delivery-Service.png" style={{marginTop:"-25px"}} alt="Redrblack"/> 
-                    </Box>
-
-                    Welcome Back!
-                </DrawerHeader>
-      
-                <DrawerBody>
-                <form onSubmit={HandleLogin}>
-                    <Stack spacing={3}>
-
-                  <Input type="email" value={formData.email} name="email" onChange={HandleFormData} placeholder="Enter your E-mail"/>
-
-
-{/* password input------------------------- */}
-<InputGroup size='md'>
-      <Input
-        pr='4.5rem'
-        type={show ? 'text' : 'password'}
-        name="password" value={formData.password} onChange={HandleFormData}
-        placeholder='Enter your password'
-        />
-      <InputRightElement width='4.5rem'>
-        <Button h='1.75rem' size='sm' onClick={handleClick}>
-          {show ? (  <FontAwesomeIcon style={{fontSize:"20px"}} icon={faEyeSlash}></FontAwesomeIcon>) : (  <FontAwesomeIcon style={{fontSize:"20px"}} icon={faEye}></FontAwesomeIcon>)}
-        </Button>
-      </InputRightElement>
-    </InputGroup>
-{/* ------------------------------- */}
-                <Input type="submit" bg="red" color="white" style={{marginTop:"30px",cursor:"pointer"}} value="Login"/>
-
-
-        </Stack>
-                  </form>
-
-                </DrawerBody>
-      
-      <DrawerFooter> {alertShow==="False"? <Button colorScheme='red' onClick={()=>setAlertShow("")} variant='ghost'>Remove Alert</Button>:null}</DrawerFooter>
-                 
-                 
-              </DrawerContent>
+                    <DrawerFooter>
+                        {alertShow === 'False' && (
+                            <Button colorScheme="red" onClick={() => setAlertShow('')} variant="ghost">
+                                Remove Alert
+                            </Button>
+                        )}
+                    </DrawerFooter>
+                </DrawerContent>
             </Drawer>
-          
-          </>
-        )
-        
-      
-}
+        </>
+    );
+};
 
-
-export default Login
+export default Login;

@@ -8,7 +8,7 @@ import { Button } from '@chakra-ui/react';
 import { AuthContext } from '../Contexts/AuthContext';
 import SideNavbar from './SideNavbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faCircleUser, faBasketShopping, faBell, faHeadset } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faCircleUser, faBasketShopping, faBell, faHeadset, faWallet } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -65,14 +65,20 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faBasketShopping} />
           <sup>{itemCount}</sup>
         </Link>
-       <div className={Styles.icon}>
-  <Link to="/PricingSection" className={Styles.icon}>
-    <FontAwesomeIcon icon={faBell} />
-  </Link>
-</div>
-
         <div className={Styles.icon}>
+          <Link to="/notifications" className={Styles.icon}>
+            <FontAwesomeIcon icon={faBell} />
+          </Link>
+        </div>
+        <div className={Styles.icon}>
+          <Link to ="/contact" className={Styles.icon}>
           <FontAwesomeIcon icon={faHeadset} />
+          </Link>
+        </div>
+        <div className={Styles.icon}>
+          <Link to="/wallet" className={Styles.icon}>
+            <FontAwesomeIcon icon={faWallet} />
+          </Link>
         </div>
       </div>
       <div className={Styles.logsin}>
